@@ -1,0 +1,134 @@
+{# layout.html.twig #}
+<!doctype html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap Core CSS -->
+    <link href="{{ asset('/lib/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('/lib/font-awesome.min.css') }}" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="{{ asset('/css/fonts.css') }}" rel="stylesheet">
+    <!-- Theme CSS -->
+    <link href="{{ asset('/css/docboard.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/welcome.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/menu.css') }}" rel="stylesheet">
+    
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="assets/js/html5shiv.js"></script>
+        <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <title>DocBoard - {% block title %}{% endblock %}</title>
+
+</head>
+
+<body id="page-top" class="index">
+    
+        <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-target">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <a class="navbar-brand" href="{{ path('home') }}">DocBoard</a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="navbar-collapse-target">
+                    <ul class="nav navbar-nav navbar-right">
+                        {% if app.user and is_granted('ROLE_ADMIN') %}
+                            <li class="{% if adminMenu is defined %}active{% endif %}"><a href="{{ path('admin') }}"><span class="glyphicon glyphicon-cog"></span> Administration</a></li>
+                        {% endif %}
+                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                            <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-user"></span> Welcome, {{ app.user.username }} <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ path('logout') }}">Log out</a></li>
+                                </ul>
+                            </li>
+                        {% else %}
+                            <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-user"></span> Not connected <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ path('login') }}">Log in</a></li>
+                                </ul>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div><!-- /.container -->
+        </nav>
+        
+        <!-- Header -->
+        <header>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <img class="img-responsive" src="images/logo.png" alt="Accueil">
+                        <div class="intro-text">
+                            <h3>Application de gestion d'informations en PHP</h3>
+                            <span class="name">DocBoard</span>
+                                <hr class="star-light">
+                            <span class="skills">CMS, gestion des liens, gestion des livres</span>
+                            <h2>Avec le framework Silex</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div id="container" class="container">{% block content %}{% endblock %}</div>
+        <!-- Crédits -->
+        <section id="credits-contact" class="success">
+            <div class="container">
+              <div class="row">
+                  <div class="col-lg-12 col-md-12">
+                      <ul class="list-inline text-center">
+                          <li><b>Crédits :</b></li>
+                          <li><a href="https://silex.sensiolabs.org/" target="_blank">Silex MicroFramework</a> |</li>
+                          <li><a href="http://getbootstrap.com/css/" target="_blank">Bootstrap</a> |</li>
+                          <li><a href="https://jquery.com/" target="_blank"> jQuery</a> |</li>
+                          <li><a href="http://fontawesome.io/icons/" target="_blank"> Font Awesome</a> </li>
+                      </ul>
+                  </div>
+              </div>
+            </div>
+        </section>
+        <!-- Footer -->
+        <footer class="text-center">
+            <div class="footer-below">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+                            <a href="#">DocBoard</a> is a minimalistic document board as a showcase for modern PHP development.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer> 
+    
+    {% block javascript %}
+        <!-- jQuery -->
+        <script src="{{ asset('/lib/jquery/jquery.min.js') }}"></script>
+        <!-- JavaScript Boostrap plugin -->
+        <script src="{{ asset('/lib/bootstrap/js/bootstrap.min.js') }}"></script>
+    {% endblock %}
+</body>
+
+</html>
+
+
+

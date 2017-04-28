@@ -1,0 +1,173 @@
+{% extends "layout.html.twig" %}
+
+
+{% block title %}Home{% endblock %}
+
+
+{% block content %}
+<!-- Portfolio Grid Section -->
+<section id="presentation" class="intro">
+      <div class="row text-justify">
+      <blockquote>
+        <p class="lead first-line">DocBoard est une petite application sous Silex pour gérer des articles et des commentaires (Mini CMS), des liens, ou des livres... </p>
+      </blockquote>   
+</section>
+<section id="menu" class="special-menu">
+      <div class="row">
+        <div class="col-md-5 col-md-offset-1">	
+						<!-- Drop down menu -->
+						<div class="dd-menu dd-two">
+							<a class="dd-link" href="#">
+								<!-- Image -->
+								<div class="img-container">
+									<img class="img-responsive dd-img" src="images/cms.png" alt="Mini CMS" />
+								</div>
+								<!-- Heading -->
+								<h3>Mini CMS</h3>
+								<div class="clearfix"></div>
+							</a>
+							<div class="dd-dropdown">
+								<ul class="list-unstyled dd-sm" role="menu">
+									<li>
+										<div class="row">
+											<div class="col-md-6 col-sm-6">
+												<!-- First Block -->
+												<div class="dd-item">
+													<!-- Image -->
+													<img class="img-responsive" src="images/show-cms.png" alt="Mini CMS" />
+												</div>
+											</div>
+											<div class="col-md-6 col-sm-6">
+												<!-- Second Block -->
+												<div class="dd-item">
+													<!-- Heading -->
+													<h4>Un Mini CMS</h4>
+                          <hr>
+													<!-- paragraph -->
+													<p>Pour la gestion des articles, des notes et des commentaires...</p>
+                          <p class="text-center">
+													<a class="btn btn-primary" href="{{ path('cms') }}" target="_blank">CMS</a>
+                          </p>
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+          <div class="col-md-5 col-md-offset-1">	
+						<!-- Drop down menu -->
+						<div class="dd-menu dd-two">
+							<a class="dd-link" href="#">
+								<!-- Image -->
+								<div class="img-container">
+									<img class="img-responsive dd-img" src="images/link.png" alt="Links Management" />
+								</div>
+								<!-- Heading -->
+								<h3>Gestion des liens</h3>
+								<div class="clearfix"></div>
+							</a>
+							<div class="dd-dropdown">
+								<ul class="list-unstyled dd-sm" role="menu">
+									<li>
+										<div class="row">
+											<div class="col-md-6 col-sm-6">
+												<!-- First Block -->
+												<div class="dd-item">
+													<!-- Image -->
+													<img class="img-responsive" src="images/show-link.png" alt="Links Management" />
+												</div>
+											</div>
+											<div class="col-md-6 col-sm-6">
+												<!-- Second Block -->
+												<div class="dd-item">
+													<!-- Heading -->
+													<h4>Gestion des liens</h4>
+                          <hr>
+													<!-- paragraph -->
+													<p>Pour gérer les liens...</p>
+                          <p class="text-center">
+													<a class="btn btn-primary" href="{{ path('links') }}" target="_blank">Gestion des liens</a>
+                          </p>
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">	
+						<!-- Drop down menu -->
+						<div class="dd-menu dd-two">
+							<a class="dd-link" href="#">
+								<!-- Image -->
+								<div class="img-container">
+									<img class="img-responsive dd-img" src="images/book.png" alt="Mini Bibliothèque" />
+								</div>
+								<!-- Heading -->
+								<h3>Mini Bibliothèque</h3>
+								<div class="clearfix"></div>
+							</a>
+							<div class="dd-dropdown">
+								<ul class="list-unstyled dd-sm" role="menu">
+									<li>
+										<div class="row">
+											<div class="col-md-6 col-sm-6">
+												<!-- First Block -->
+												<div class="dd-item">
+													<!-- Image -->
+													<img class="img-responsive" src="images/show-book.png" alt="Mini Bibliothèque" />
+												</div>
+											</div>
+											<div class="col-md-6 col-sm-6">
+												<!-- Second Block -->
+												<div class="dd-item">
+													<!-- Heading -->
+													<h4>Un Mini CMS</h4>
+                          <hr>
+													<!-- paragraph -->
+													<p>Pour la gestion des livres...</p>
+                          <p class="text-center">
+													<a class="btn btn-primary" href="{{ path('books') }}" target="_blank">Bibliothèque</a>
+                          </p>
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+      </div>
+</section>
+{% endblock %}
+{% block javascript %}
+{{ parent() }}
+    <script>		
+			/* Drop Down */
+			$(document).ready(function() {
+				var hidden = true;
+				$('.dd-link').click(function(e) {
+					e.preventDefault();
+					if (hidden){
+					   $(this).next('.dd-dropdown').fadeToggle(200, function(){hidden = false;});
+					}
+				});
+
+				$('html').click(function() {
+					if (!hidden) {
+						$('.dd-dropdown').fadeOut();
+						hidden=true;
+					}
+				});
+
+				$('.dd-dropdown').click(function(event) {
+					event.stopPropagation();
+				});
+			});			
+		</script>
+{% endblock %} 
