@@ -1,14 +1,167 @@
-/* CSS Document */
-body { 
-    padding-top: 50px; 
+/*!
+ * Feuille de style de la page d'accueil DocBoard
+ * Poullette Corinne - 2016
+ */
+
+/* Fonts  */
+@font-face {
+    font-family: 'open_sanslight';
+    src: url('../fonts/opensans/opensans-light-webfont.woff2') format('woff2'),
+         url('../fonts/opensans/opensans-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'lato';
+    src: url('../fonts/lato/LatoLatin-Bold.woff2') format('woff2'),
+         url('../fonts/lato/LatoLatin-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
 }
 
-.footer {
-    border-top: 1px solid #ccc;
+body {
+  font-family: 'open_sanslight', sans-serif;
+	-webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  padding-top: 50px; 
+}
+
+p {
+  font-size: 20px;
+}
+p.small {
+  font-size: 16px;
+}
+
+h1,
+h2,
+h3,
+h4{
+  font-family: "lato", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+}
+h5, h6 {
+	color: #666;
+	font-family: 'lato', sans-serif;
+	font-weight: 600;
+	margin: 2px 0px;
+	padding: 0px;
+}
+hr.star-light,
+hr.star-primary {
+  padding: 0;
+  border: none;
+  border-top: solid 5px;
+  text-align: center;
+  max-width: 250px;
+  margin: 25px auto 30px;
+}
+hr.star-light:after,
+hr.star-primary:after {
+  content: "\f005";
+  font-family: FontAwesome;
+  display: inline-block;
+  position: relative;
+  top: -0.8em;
+  font-size: 2em;
+  padding: 0 0.25em;
+}
+hr.star-light {
+  border-color: white;
+}
+hr.star-light:after {
+  background-color: #333;
+  color: white;
+}
+.img-centered {
+  margin: 0 auto;
+}
+header {
+  text-align: center;
+  background: #333;
+  color: white;
+}
+header .container {
+  padding-bottom: 40px;
+}
+header img {
+  display: block;
+  margin: 40px auto 20px;
+}
+header .intro-text .name {
+  display: block;
+  font-family: "lato", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 1em;
+  color:#c7174e;
+}
+header .intro-text .skills {
+  font-size: 1.25em;
+  font-weight: 300;
+}
+@media (min-width: 768px) {
+  header .container {
     padding-top: 10px;
-    text-align: center;
+    padding-bottom: 100px;
+  }
+  header .intro-text .name {
+    font-size: 4.75em;
+    
+  }
+  header .intro-text .skills {
+    font-size: 1.75em;
+  }
 }
 
+
+section {
+  padding: 10px 0;
+}
+section h2 {
+  margin: 0;
+  font-size: 3em;
+}
+section.success, section.success a {
+  background: #333;
+  color: white;
+}
+@media (max-width: 767px) {
+  section {
+    padding: 75px 0;
+  }
+  section.first {
+    padding-top: 75px;
+  }
+}
+section.intro{
+  padding-top:70px;
+}
+
+footer {
+   border-top: 1px solid #ccc;
+   color:white
+   text-align: center;
+}
+footer h3 {
+  margin-bottom: 30px;
+}
+footer .footer-above {
+  padding-top: 50px;
+  background-color: #eee;
+}
+footer .footer-col {
+  margin-bottom: 50px;
+}
+footer .footer-below {
+  padding: 25px 0;
+  background-color: #eee;
+}
+
+.alert{
+  margin-top:7px;
+}
 .bookTitle:hover, .bookTitle:focus {
     text-decoration: none;
 }
@@ -30,3 +183,4 @@ body {
     padding-top: 30px;
     padding-bottom: 10px;
 }
+
